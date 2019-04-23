@@ -1,8 +1,8 @@
 
 ##########################
 message("#################################################################################################################")
-message("#PreProcessR v0.2")
-message("#J Bisanz 28 March 2019")
+message("#PreProcessR v0.21")
+message("#J Bisanz 23 April 2019")
 message("#fragments reference genomes and calculates unique kmers on a per fragment basis, then assembles")
 message("#################################################################################################################")
 message(" ")
@@ -73,16 +73,12 @@ if(file.exists(paste0(opt$outdir,"/Fragments/"))){
     })
     
     Fragments<-do.call(c, Fragments)
-    #message("--->Fragmented into :", length(Fragments), " fragments")
     Fragments<-Fragments[sapply(Fragments, length)>opt$excludesize] #remove fragments smaller than excludesize
     
-    #message("--->After size filtering there are :", length(Fragments), " fragments")
-    
-    #writeXStringSet(Fragments[[Strain]], paste0(opt$outdir,"/Fragments/",Strain,".frags"))
+
     for(frag in names(Fragments)){
       tmp<-DNAStringSet(Fragments[[frag]])
-      tmp<-c(tmp, reverseComplement(tmp))
-      names(tmp)<-c(frag, paste0(frag," RC"))
+      names(tmp)<-frag
       fname<-md5(frag)
       suppressWarnings(cltr<-bind_rows(cltr, tibble(Fragment=frag, md5=fname)))
       writeXStringSet(tmp, paste0(opt$outdir,"/Fragments/",fname,".frags"))
@@ -91,10 +87,8 @@ if(file.exists(paste0(opt$outdir,"/Fragments/"))){
     rm(Fragments)
     return(cltr)
   }
-  #rm(Ref, Strain)
   do.call(bind_rows, lookup) %>% write_tsv(paste0(opt$outdir,"/Frags.md5"))
   stopCluster(pclust)
-  #write_tsv(FragmentLookup, paste0(opt$outdir, "/Fragments/FragmentLookup.txt"))
 }
 
 gc(verbose=TRUE)
