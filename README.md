@@ -86,7 +86,7 @@ StrainID | ContigID | Start_Stop | Unique_Kmers | Length_Contig | Bases | Covera
 Eggerthella_lenta_1356FAA | Eggerthella_lenta_1356FAA\|GL622582.1 | 3332860_3378358 | 2758 | 45498 | 184080 | 4.0459 | 1416 | 708 | 278548 | 921.5925414859568
 
 
-The following example was generated in silico using (InSilicoSeq)[https://github.com/HadrienG/InSilicoSeq] using reads simulated based on a real 150x150 Illumina NovaSeq Run with community compositions based on predetermined proportions:
+The following example was generated in silico using [InSilicoSeq](https://github.com/HadrienG/InSilicoSeq) using reads simulated based on a real 150x150 Illumina NovaSeq Run with community compositions based on predetermined proportions:
 
 ![Figure 2](https://github.com/jbisanz/StrainR/blob/master/figures/mock_barplots.jpg)
 **Figure 2. Composition of in silico generated communities across sequencing depth.** Inset figures show the proportion of reads generated as a function of input community.
