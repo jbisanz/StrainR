@@ -207,7 +207,7 @@ if(file.exists(paste0(opt$outdir,"/kmat.RDS"))){
 
 data.frame(Nunique=colSums(kmat[rowSums(kmat)==1,])) %>% # Keep only the singleton kmers
   rownames_to_column("FragmentID") %>%
-  as.tibble() %>%
+  as_tibble() %>%
   separate(FragmentID, c("StrainID","ContigID","Start_Stop","Length"),";", remove = FALSE) %>%
   write_tsv(paste0(opt$outdir,"/KmerContent.report"))
 
