@@ -232,9 +232,13 @@ if(file.exists(paste0(opt$outdir,"/Kmerclusters.pdf"))){
   kclust<-hclust(kdist, method="average")
   saveRDS(kclust, paste0(opt$outdir,"/KmerClust.RDS"))
   
-  pdf(paste0(opt$outdir,"/Kmerclusters.pdf"))
-    plot(kclust, xlab = "StrainID", ylab = "Binary Distance", main = "UPGMA clustering of Strain Kmer Profiles")
-  dev.off()
+  if(length(Refs)>2){
+    pdf(paste0(opt$outdir,"/Kmerclusters.pdf"))
+      plot(kclust, xlab = "StrainID", ylab = "Binary Distance", main = "UPGMA clustering of Strain Kmer Profiles")
+    dev.off()
+    } else {
+    message(date(), " Insufficient strains to plot dendrogram.")
+    }
 }
 
 #######################################################
