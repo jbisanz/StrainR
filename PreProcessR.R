@@ -1,8 +1,8 @@
 
 ##########################
 message("#################################################################################################################")
-message("#PreProcessR v0.21")
-message("#J Bisanz 23 April 2019")
+message("#PreProcessR v0.22")
+message("#J Bisanz 15 Jan 2021")
 message("#fragments reference genomes and calculates unique kmers on a per fragment basis, then assembles")
 message("#################################################################################################################")
 message(" ")
@@ -80,7 +80,7 @@ if(file.exists(paste0(opt$outdir,"/Fragments/"))){
       tmp<-DNAStringSet(Fragments[[frag]])
       names(tmp)<-frag
       fname<-md5(frag)
-      suppressWarnings(cltr<-bind_rows(cltr, tibble(Fragment=frag, md5=fname)))
+      suppressWarnings(cltr<-bind_rows(cltr, tibble(Fragment=frag, md5=as.character(fname))))
       writeXStringSet(tmp, paste0(opt$outdir,"/Fragments/",fname,".frags"))
       rm(tmp)
     }
