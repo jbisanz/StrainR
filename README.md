@@ -1,5 +1,13 @@
 # StrainR: quantification of highly related strains in shotgun metagenomics
 
+***
+
+# Depreciation
+
+Note: StrainR has been depreciated in favor of StrainR2 which can be found [here](https://github.com/BisanzLab/StrainR2).
+
+***
+
 ## The problem
 
 Experiments on complex defined microbial communities are empowering a new wave of hypothesis-driven research; however, the quantification of strain abundances is not always a trivial task. If selective and differential media is available and micro-organisms are robust, then culture is preferable, but what if the organisms are obligate anaerobes and/or difficult to selectively enumerate by culture? Culture-free DNA-based methods are preferable in this case, and the availability of genomes for the members of the communities provides a number of opportunities. qPCR is a valid option for smaller communities; however the time and cost involved in assay developement and run-time scale horribly with increasing community complexity. For many, sequencing becomes preferable. Amplicon sequencing of the 16S rRNA gene would be powerful tool, but requires that all members of the community have distinct 16S rRNA variable regions which will often not be possible where closely related strains are being studied. Where this is true, shotgun metagenomic sequencing becomes necessary; however, quantification is not as simple as counting mapped reads. We developed this tool to quantify strains of Eggerthella lenta within a 22-member community to overcome biases due to sequence variation within this strain. Intuitively, the more divergent the strain within the species, the higher its abundance is reported in the community wherein their is a 28-fold difference in abundance reported between strains which are present at equal concentrations in a community (**Figure 1AB**).
